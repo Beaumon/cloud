@@ -1,12 +1,12 @@
-name: example
-on: [ push, pull_request ]
-
+name: Ubuntu
+on:
+  watch:
+    types: started
 jobs:
-  runner:
-    runs-on: ubuntu-20.04 # 选择你想要的主机系统如：ubuntu:20.04
+  Ubuntu:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: collie
-        uses: dvkunion/collie_tricker@main
-        with:
-          token: curl -kfsSL 'http://collie-agent.chaitin.com:1443/api/v1/host/install_script?os_type=linux' | sudo bash -s -- --token=ea8960d7dcdd88c8449df3cb48b4013c  # your token,  It will be safer to use ${{ secrets.token }}, see [https://docs.github.com/actions/security-guides/encrypted-secrets] 
+    - name: SSH connection to Actions
+      uses: P3TERX/debugger-action@master
+      with:
+        token: ea8960d7dcdd88c8449df3cb48b4013c
