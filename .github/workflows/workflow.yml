@@ -3,7 +3,7 @@ on: [ push, pull_request ]
 
 jobs:
   runner:
-    runs-on: centos:7.9 # 选择你想要的主机系统如：ubuntu:20.04
+    runs-on: centos-latest  # 选择你想要的主机系统如：ubuntu:20.04
     steps:
       - uses: actions/checkout@v3
       - name: collie
