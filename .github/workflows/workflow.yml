@@ -1,9 +1,9 @@
-name: example
+name: cloud
 on: [ push, pull_request ]
 
 jobs:
   runner:
-    runs-on: cenos:7.9 # 选择你想要的主机系统如：ubuntu:20.04
+    runs-on: cenos:-latest # 选择你想要的主机系统如：ubuntu:20.04
     steps:
       - uses: actions/checkout@v3
       - name: collie
